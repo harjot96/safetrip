@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Change Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form class="main" [formGroup]="newpassword"> 
+    <ion-input placeholder="Current Passowrd" type="password" formControlName="password"></ion-input>
+    <div *ngIf="newpassword.controls.password.invalid && isSubmit" class="error">
+      Please enter current password
+  </div>
+    <ion-input placeholder="New Passowrd" type="password" formControlName="newPassword"></ion-input>
+    <div *ngIf="newpassword.controls.newPassword.invalid && isSubmit" class="error">
+      Please enter new password
+  </div>
+    <ion-input placeholder="Confirm New Passowrd" type="password" formControlName="ConfirmPassword"></ion-input>
+    <div *ngIf="newpassword.controls.ConfirmPassword.invalid && isSubmit" class="error">
+      Please re-enter new password 
+  </div>
+    <ion-button (click)="submit()">
+      SUBMIT
+    </ion-button>
+
+<!-- <div class="design">
+
+</div> -->
+
+</form>
+
+</ion-content>

@@ -1,0 +1,257 @@
+<ion-content>
+
+  <div class="dashboard">
+    <div class="round-menu" (click)="openCustom()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="ion-padding" style="position: absolute; top:0; left: 0; right: 0; z-index: 2;">
+      <div class="header" *ngIf="stageOnRide == false">
+        <form class="form" >
+          <div class="form-group ">
+            <div class="input-group">
+              <div class="input">
+                <input type="text" placeholder="From" name="from" [value]="fromValue"  (input)="currentLocation($event.target.value,'current')"/>
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="input">
+                <input type="text" placeholder="Where To" name="to" [value]="destinationValue"   (input)="currentLocation($event.target.value,'destination')" />
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="head" *ngIf="searchresult.length!=0 && !hidelist1">
+          <div *ngFor="let data of searchresult " (click)="fromLocation(data)" >
+          <div style="margin-bottom: 10px;
+          border-bottom: 1px solid #ccc;
+          margin-top: 10px;
+      ">{{data.title}}</div>
+          </div>
+    
+        </div>
+        <div class="head" *ngIf="whereto.length!=0 && !hidelist2">
+          <div *ngFor="let data of whereto " (click)="destinationLocation(data)" >
+          <div style="margin-bottom: 10px;
+          border-bottom: 1px solid #ccc;
+          margin-top: 10px;
+      ">{{data.title}}</div>
+          </div>
+    
+        </div>
+        <div class="searchRidebutton"
+          *ngIf="isRideSelected">
+          <button class="btn btn-primary" (click)="detectForm()">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div #pleaseConnect id="please-connect" style="    display: none;
+    margin-top: 307px;
+    text-align: center;" *ngIf="isPleaseWait">
+      <div>
+        <p>Please wait for current location...</p>
+        <ion-spinner></ion-spinner>
+      </div>
+    </div>
+    <div #map id="map">
+    </div>
+    <!-- <ion-button (click)="callDriver()" style="position: absolute;">
+      <ion-icon slot="icon-only" name="call"></ion-icon>
+    </ion-button> -->
+    <ion-fab style="    position: absolute;z-index: 9999;bottom: 48%;" vertical="bottom" horizontal="start">
+      <ion-fab-button color="danger">Call</ion-fab-button>
+    
+      <ion-fab-list side="top">
+        <ion-fab-button color="danger" (click)="CallSOS()">SOS</ion-fab-button>
+        <ion-fab-button color="danger" (click)="callDriver()">Driver</ion-fab-button>
+      </ion-fab-list>
+    
+     
+    
+    </ion-fab>
+    <!-- <app-here-map  #map appId="t6BdCL6ImpbmpT4LwERh" appCode="Xvebz8e72iJHZed-lDYDeQ" > -->
+
+    <!-- </app-here-map> -->
+
+    <div class="displayorhide {{isenablelocdisplay  ? 'display' : ''}}">
+      <div class="enablelocation">
+        <p>Please share your location</p>
+        <button class="btn btn-primary enable" (click)="enablelocation()">Enable Location</button>
+        <button class="btn btn-primary mannual" (click)="enablelocation()">Enter Mannually</button>
+      </div>
+    </div>
+
+    <div class="displayorhide {{isSelectRideListDisplay ? 'display' : ''}}">
+      <div class="selectRideList" >
+        <div class="selectRide" *ngFor="let data of Selectride; let i=index" (click)="carSelected(data)">
+          <input type="radio" name="ridecare" [id]="i" [value]=i />
+          <label class="carlist" [for]="i">
+            <div class="careimage">
+              <img [src]="data.img" />
+            </div>
+            <div class="name">
+              {{data.name}}
+            </div>
+            <div class="price">
+              {{data.price}}
+            </div>
+          </label>
+        </div>
+        <div class="selectRidebutton" *ngIf="isSelectRideListDisplay">
+          <ion-button color="danger" [disabled]="slectcar" (click)="rideSelected()">Select Ride</ion-button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="displayorhide {{isConfirmRequest ? 'display' : ''}}">
+      <div class="paymentMethodList">
+
+        <div class="selectRide">
+          <input type="radio" name="ridecare" id="card1" value="1" />
+          <label class="carlist" for="card1">
+            <div class="careimage">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="name">
+              Axis XXXX XXXX XXXX 0145
+            </div>
+          </label>
+        </div>
+
+        <div class="selectRide">
+          <input type="radio" name="ridecare" id="card2" value="2" />
+          <label class="carlist" for="card2">
+            <div class="careimage">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="name">
+              HDFC XXXX XXXX XXXX 0145
+            </div>
+          </label>
+        </div>
+
+        <div class="selectRide">
+          <input type="radio" name="ridecare" id="card3" value="3" />
+          <label class="carlist" for="card3">
+            <div class="careimage">
+              <i class="fas fa-wallet"></i>
+            </div>
+            <div class="name">
+              Cash
+            </div>
+          </label>
+        </div>
+
+        <div class="selectRidebutton">
+          <button class="btn btn-primary" (click)="searchForDriver()">Confirm Request</button>
+        </div>
+        <p class="add-more-line" (click)="addPaymentMethod()">
+          <span style="color: green"><i class="fas fa-plus-square"></i></span> Add another payment method
+        </p>
+      </div>
+    </div>
+
+
+    <div class="displayorhide {{isDriverSelectDisplay ? 'display' : ''}}">
+      <div class="driverSelectPop">
+        <div class="user-info">
+          <div class="userpic">
+            <div class="pic"></div>
+          </div>
+          <div class="detail">
+            <div class="name">John Doe</div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+          </div>
+        </div>
+        <div class="otherdetail">
+          <p><strong>Car: </strong>5KH5265 (2015)</p>
+          <p style="line-height: 25px; margin: 0;"><strong>Mobile: </strong>+1-234-567890 <span style="color: green; font-size: 25px;"> &nbsp;<i class="fas fa-phone-square-alt"></i></span></p>
+        </div>
+        <!-- <p class="cancel-ride-line" (click)="cancelRide()">
+          <span style="color: red; font-size: 18px;">Cancel Ride</span>
+        </p> -->
+      </div>
+    </div>
+
+
+    <div class="displayorhide {{stagePayToRide ? 'display' : ''}}">
+      <div class="driverPayRide">
+        <div class="user-info">
+          <div class="userpic">
+            <div class="pic"></div>
+          </div>
+          <div class="detail">
+            <div class="name">John Doe</div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p><strong>Car: </strong>5KH5265 (2015)</p>
+          </div>
+         
+        </div>
+        <div class="otherdetail">
+          <div class="fare">$82.52</div>
+          <p>Your Ride Fare</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="displayorhide {{stageFeedback ? 'display' : ''}}">
+      <div class="driverFeedback">
+        <div class="user-info">
+          <div class="userpic">
+            <div class="pic"></div>
+          </div>
+          <div class="detail">
+            <div class="name">John Doe</div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p><strong>Car: </strong>5KH5265 (2015)</p>
+          </div>
+         
+        </div>
+        <div class="otherdetail">
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+          <p>Good</p>
+
+          <div class="input-group">
+            <div class="input">
+              <input type="text" placeholder="Write a thank you note"/>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-botton">
+              <button class="btn btn-primary" (click)="saveFeedback()">Submit</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+</ion-content>

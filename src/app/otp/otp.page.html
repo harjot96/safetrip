@@ -1,0 +1,30 @@
+<ion-content>
+  <div class="otppage">
+    <div class="upper">
+      <div class="logo">
+        <img class="logo-img" src="assets/images/logo.png" />
+      </div>
+      <form class="form" (ngSubmit)="createProfile()">
+        <div class="form-group"  [formGroup]="otpform">
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-keyboard"></i>
+            </div>
+            <div class="input">
+              <input type="tel" id="opt" placeholder="OTP"  formControlName="otp" required/>
+            </div>
+          </div>
+         <div *ngIf="otpform.controls?.otp.invalid && isSubmit" class="error">
+          Please Enter OTP
+         </div>
+    
+          <div class="input-group">
+            <div class="input-botton">
+              <button class="btn btn-primary">Verify</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

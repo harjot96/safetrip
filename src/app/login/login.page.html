@@ -1,0 +1,48 @@
+<ion-content>
+    <div class="loginpage">
+        <div class="upper">
+            <div class="logo">
+                <img class="logo-img" src="assets/images/logo.png" />
+            </div>
+            <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="form-group ">
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="tel" placeholder="Mobile" formControlName="mobile" required/>
+                        </div>
+                    </div>
+                    <div *ngIf="loginForm.controls.mobile.invalid && isSubmit" class="error">
+                        Please Enter Mobile Number
+                    </div>
+
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-unlock-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="password" placeholder="Password" formControlName="password" required/>
+                        </div>
+                    </div>
+                    <div *ngIf="loginForm.controls.password.invalid && isSubmit" class="error">
+                        Please Enter Password
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-botton">
+                            <button class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <p class="text-center" (click)="gotoForgetPage()">Forget Password?</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="lower">
+            <span (click)="gotoSignup()">if you don't have any account <strong>Signup</strong></span>
+        </div>
+    </div>
+</ion-content>

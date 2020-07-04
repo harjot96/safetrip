@@ -1,0 +1,103 @@
+<!-- <div class="main">
+  <div class="card">
+
+    <div class="call">
+    <img style="height: 18px;" src="https://pngimg.com/uploads/phone/phone_PNG48987.png" alt="">
+    </div>
+    
+    <div style="    display: flex;
+    justify-content: space-between;">
+    <div class="first">
+    <div class="imageInfo">
+    <img style="    height: 50px;
+    margin-top: 20px;" [src]="driverDetails.image" alt="">
+    </div>
+    <div>
+      <p>{{driverDetails.firstName}}{{driverDetails.lastName}}</p>
+      <p>{{driverDetails.mobile}}</p>
+      <p>{{driverDetails.rating}}</p>
+    </div>
+    </div>
+    
+    <div class="secound">
+    <div>
+      <img style="height: 18px;" src="https://png.pngtree.com/png-clipart/20190630/original/pngtree-classical-stylish-car-png-image_4180732.jpg" alt="">
+    </div>
+    <p>car</p>
+    <p>numbercar</p>
+    </div>
+    </div>
+
+    <div class="btn">
+      <ion-button (click)="cancelRide()">CANCEL BOOKING</ion-button>
+    </div>
+    </div>
+</div> -->
+
+
+
+<!-- <ion-content>
+  <ion-row>
+    <ion-col size="3">
+      <img style="    height: 50px;
+      margin-top: 20px;" src="" alt="">
+    </ion-col>
+    <ion-col size="5">
+      <p class="name"></p>
+      <p class="mobile"></p>
+      <p>{{driverDetails.rating}}</p>
+    </ion-col>
+<ion-col size="4">
+  <ion-avatar>
+    <img  src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+  </ion-avatar>
+  <p>car</p>
+  <p>numbercar</p>
+</ion-col>
+  </ion-row>
+  
+</ion-content> -->
+
+
+<ion-content>
+    <ion-card style="height: 100%;padding-top: 6px;">
+        <ion-row>
+            <ion-col size="3" style="padding-top: 20px;">
+                <img style="
+border-radius: 50%;
+height: 60px;
+width: 60px;
+" [src]="driverDetails.image" alt="">
+            </ion-col>
+            <ion-col size="4">
+                <div>
+                    <h5 style="margin:0px;padding-top: 20px; ">{{driverDetails.firstName}}{{driverDetails.lastName}}</h5>
+                    <h6 style="margin: 0px; padding-top:5px ;">{{driverDetails.mobile}}</h6>
+                    <rating [(ngModel)]="driverDetails.rating" readonly="true" size="default" (ngModelChange)="onRateChange($event)">
+                    </rating>
+                </div>
+            </ion-col>
+            <ion-col size="5" style="    padding-top: 5px;">
+                <div>
+
+                    <h4 style="font-size: 15px;
+text-align: center;
+font-weight: bold;">{{driverDetails.carnumber}}</h4>
+                    <h4 style=" font-size: 15px;
+text-align: center;">{{driverDetails.cartype}}</h4>
+
+
+                </div>
+
+
+            </ion-col>
+        </ion-row>
+        <div class="btn">
+            <ion-button (click)="cancelRide()">CANCEL BOOKING</ion-button>
+            <ion-button (click)="callDriver()">
+                <ion-icon slot="icon-only" name="call"></ion-icon>
+            </ion-button>
+        </div>
+
+    </ion-card>
+</ion-content>

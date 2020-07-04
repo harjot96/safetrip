@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Payment Method</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- <ion-list>
+<ion-item  class="btn"  (click)="addSelectedTag(i)">
+<h2> {{tag.cardNumber}}</h2>
+</ion-item>
+</ion-list> -->
+
+
+
+      <div class="paymentMethodList">
+
+        <div class="selectRide" *ngFor="let tag of carddetail; let i=index" (click)="paymentMehod('card')">
+          <input type="radio" name="ridecare"  id="card1" value="1" />
+          <label class="btn" for="card1">
+            <div class="careimage">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="name">
+              {{tag.cardNumber}}
+            </div>
+          </label>
+        </div>
+
+        <div class="selectRide" (click)="paymentMehod('cash')">
+          <input type="radio" name="ridecare" id="card1" value="1" />
+          <label class="btn" for="card1">
+            <div class="careimage">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="name">
+              Cash
+            </div>
+          </label>
+        </div>
+        <div class="selectRide" (click)="paymentMehod('insurance')">
+          <input type="radio" name="ridecare" id="card1" value="1" />
+          <label class="btn" for="card1">
+            <div class="careimage">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="name">
+              Insurance
+            </div>
+          </label>
+        </div>
+
+       
+        
+        <p class="add-more-line" (click)="addPaymentMethod()">
+          <span style="color: green"><i class="fas fa-plus-square"></i></span> Add another payment method
+        </p>
+        <div class="selectRidebutton">
+          <ion-button color="danger" [disabled]="selected_payment" (click)="searchForDriver()">Confirm Request</ion-button>
+        </div>
+      </div>
+</ion-content>

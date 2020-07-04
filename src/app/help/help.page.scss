@@ -1,0 +1,44 @@
+.design{
+    height: 250px;
+    background-color: red;
+    border-radius: 0px 300px 0px 0px;
+    width: 100%;
+    position: absolute;
+    z-index: 9999;
+    bottom: 0px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+ion-item{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.item-native{
+    padding: 0px !important;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+textarea {
+    overflow: auto;
+    height: auto;
+    color: inherit;
+    border: 2px solid #ccc;
+    width: 90%;
+    margin-top: 50px;
+    height: 200px;
+    padding: 5px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+ion-button{
+    width: 250px;
+    margin-top: 30px;
+    --background:#000;
+
+}

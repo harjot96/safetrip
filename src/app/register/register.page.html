@@ -1,0 +1,63 @@
+<ion-content>
+  <div class="regpage">
+    <div class="upper">
+      <div class="logo">
+        <img class="logo-img" src="assets/images/logo.png" />
+      </div>
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="sendOTP()" > 
+        <div class="form-group">
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-phone-square-alt"></i>
+            </div>
+            <div class="input">
+              <input type="tel" placeholder="Mobile" formControlName="mobile" required/>
+            </div>
+            
+          </div>
+          <div *ngIf="registerForm.controls.mobile.invalid && isSubmit" class="error">
+            Please Enter Mobile Number
+          </div>
+          
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-unlock-alt"></i>
+            </div>
+            <div class="input">
+              <input type="password" placeholder="Set Password" formControlName="password" required/>
+            </div>
+            
+          </div>
+          <div *ngIf="registerForm.controls.password.invalid && isSubmit" class="error">
+            Please Enter Password
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-unlock-alt"></i>
+            </div>
+            <div class="input">
+              <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" required/>
+            </div>
+            
+          </div>
+          <div *ngIf="registerForm.controls.confirmPassword.invalid && isSubmit" class="error">
+            Please Enter Confirm Password
+          </div>
+          <div *ngIf="registerForm.controls.password.value != registerForm.controls.confirmPassword.value && isSubmit" class="error">
+            Password Not Match
+          </div>
+          
+          <div class="input-group">
+            <div class="input-botton">
+  <button class="btn btn-primary" [disabled]="buttondisable" type="submit">Signup</button>
+            </div>
+          </div>
+          
+        </div> 
+      </form>
+    </div>
+    <div class="lower">
+      <span (click)="goBack()">if you already have any account <strong>Sign in</strong></span>
+    </div>
+  </div>
+</ion-content>

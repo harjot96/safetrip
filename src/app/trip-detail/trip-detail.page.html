@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>TripDetail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="trip_image">
+  <img src="https://staticmapmaker.com/img/google@2x.png" alt="">
+</div>
+<div class="info">
+  <h4>{{data.date}}</h4>
+  <h4>{{data.totalFare}}</h4>
+</div>
+<div class="arrival">
+  <div class="img">
+<img src="../../assets/marker.png" alt="">
+  </div>
+  <div>
+    <h4 class="text">{{data.sourceAddress}}</h4>
+  </div>
+</div>
+<div class="line">
+
+</div>
+<div class="arrival">
+  <div class="img">
+<img src="../../assets/des.png" alt="">
+  </div>
+  <div>
+    <h4 class="text">{{data.destinationAddress}}</h4>
+  </div>
+</div>
+
+<div class="driver_detail">
+<div class="user_img">
+  <img [src]="data.profileImage" alt="">
+  <h5 style="    text-align: center;">{{data.firstName}}</h5>
+</div>
+<div>
+  <h4 style="    margin: 0px;
+  margin-bottom: 18px;
+  text-align: center;
+  font-weight: bold;">Diver Rating</h4>
+  <rating 
+        size={{data.rating}}
+        (rateChange)="onRateChange($event)">
+</rating>
+</div>
+</div>
+</ion-content>

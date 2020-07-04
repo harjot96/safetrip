@@ -1,0 +1,98 @@
+.btn {
+    background-color: #fff;
+    width: 100% !important;
+    display: flex !important;
+    border-bottom: 1px solid #cccc !important;
+  }
+  
+  /* Style the active class, and buttons on mouse-over */
+  .active, .btn:hover {
+                background: rgba(219, 65, 65, 0.548);
+
+  }
+  S
+
+  ion-title{
+    font-size: 14px;
+  }
+  .selectRide{
+    margin: 16px;
+  }
+
+
+  .paymentMethodList{
+    transition: bottom 0.5s ease;
+    position: fixed;
+    background: #fff;
+    box-shadow: 0px 1px 5px #ccc;
+    height: 260px;
+    width: 100%;
+    z-index: 998;
+    overflow: scroll;
+    .selectRide{
+        height: 50px;
+        overflow: hidden;
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]:checked ~ label.carlist{
+            background: rgba(219, 65, 65, 0.548);
+        }
+
+        label.carlist{
+            width: 100%;
+            display: inline-block;;
+            border-bottom: 1px solid #ccc;
+            margin: 0;
+            height: 50px;
+            overflow: hidden;
+            background: none;
+            .careimage {
+                width: 50px;
+                padding: 10px;
+                float: left;
+                font-size: 24px;
+                img{
+                    width: 100%;
+                }
+            }
+           
+        }
+    }
+
+    .selectRidebutton{
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .add-more-line {
+        text-align: center;
+        margin: 10px auto;
+        font-size: 14px;
+    }
+}
+.name{
+    margin-left: 10px !important;
+}
+.image_show{
+    padding: 8%;
+    position: absolute;
+    z-index: 999;
+    bottom: 0;   
+}
+.allcard{
+    height: 200px;
+    overflow: scroll;
+    padding: 39px 20px 5px 20px;
+}
+.buttonsubmit{
+width: 100%;
+margin-top: 20px;
+text-align: center;
+ion-button{
+    width: 100px;
+}
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 80" width="124" height="80">
+	<defs>
+		<image width="31" height="20" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAYAAAB1aeb6AAAB9klEQVRIS72Vv24TQRDGv+8Igi6moL3bKGeJjvAEsRAVTdxSEZ6ARzAUdEhJOjpIS4NpaM09gZMOKWd59xpKXBO4D+35HOHgEO9FummuuJn5zczOH+IaeWCM+QU8RFnuXKe77n8Cs/MoOub/DLaNOaT0cl2nIXqUroZ34/iDyOchDgN1s5WZtwD2cf4L7xqzL+l9YBZN1JfhLYKXM+8asyNp3CSFhjbzzGvwCECnoaMmZhmNMZ1b0piAaeLhBjYZ0yQ5gV8i7UsF/wTytGJLgxZjyJgas5tbm3lomiRqFx7HA0TR1zpz/3Uih5F0Dun+jbac9JnkWUneptS79LxV2S+yJfBFwE8APQEzHxD9wiFfh1aEwFsBT1RPEAEr4DuBZ7WvCu4hm/Mn1zsAdydF8aIewf1SGlA6BbkXEIDvoRmkUV4UVeDbceyTuEPgac3LWM/4ocgTSv3fUbQ7nU7dApQmyRiSb8rHAfCPAN7kzt3728ZXWeQRy9Iwil4tHZY0SewK+MiXPbd23hdryGJ3TJzbugzPnbtgLsH9/UZZbi7KnhqzB+kody54Afn9IfJgYu1xNUlxfABgKy+K/iKgJbiPeEMaCkh8gwB4RLJ3Zq1fREFSP+cQwI/akBtk/5u13m8lq++5PzJAJ6TUV0WWGuNHDKt8/QEx99fVDk6UdgAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #ffffff } 
+	</style>
+	<g id="Group 126">
+		<use id="van-black-side-view" href="#img1" transform="matrix(4,0,0,4,0,0)"/>
+		<path id="Path 264" class="shp0" d="M12.66 29.17L26.12 11.91C26.12 11.91 28.7 7.87 34.5 7.23C40.29 6.58 50.02 7.23 50.02 7.23L50.02 29.17L12.66 29.17Z" />
+		<path id="Rectangle 31" class="shp0" d="M51.87 6.94L71.63 6.94L71.63 29.17L51.87 29.17L51.87 6.94Z" />
+		<path id="Rectangle 32" class="shp0" d="M74.1 6.94L93.86 6.94L93.86 29.17L74.1 29.17L74.1 6.94Z" />
+		<path id="Rectangle 33" class="shp0" d="M96.33 6.94L113.03 6.94C117.45 6.94 121.03 10.52 121.03 14.94L121.03 21.17C121.03 25.59 117.45 29.17 113.03 29.17L96.33 29.17L96.33 29.17L96.33 6.94L96.33 6.94Z" />
+	</g>
+</svg>

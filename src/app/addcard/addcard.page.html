@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Addcard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div *ngIf="cards.length">
+<ion-row *ngFor="let data of cards">
+<ion-col size="2"><img style="padding: 9px;" src="../../assets/online.svg" alt=""></ion-col><ion-col size="10">
+  <h6>{{data.cardNumber}}</h6>
+</ion-col>
+</ion-row>
+</div>
+
+<div class="errors" *ngIf="!cards.length">
+  <img src="../../assets/undraw_credit_card_payment_12va.svg" alt="">
+</div>
+<h5 *ngIf="!cards.length">
+  No Card Found. 
+</h5>
+<div class="btn">
+  <ion-button  color="danger" (click)="addCard()">
+    Add Card
+  </ion-button>
+</div>
+
+</ion-content>

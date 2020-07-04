@@ -1,0 +1,54 @@
+<ion-content>
+  <div class="otppage">
+    <div class="upper">
+      <div class="logo">
+        <img class="logo-img" src="assets/images/logo.png" />
+      </div>
+      <form class="form" [formGroup]="changepassowrd">
+        <div class="form-group ">
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-unlock-alt"></i>
+            </div>
+            <div class="input">
+              <input type="password" formControlName="newPassword" placeholder="Set Password"/>
+            </div>
+          </div>
+          <div *ngIf="changepassowrd.controls.newPassword.invalid && isSubmit" class="error">
+            Please Enter Password
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-unlock-alt"></i>
+            </div>
+            <div class="input">
+              <input type="password" formControlName="confirmPassword" placeholder="Confirm Password"/>
+            </div>
+           
+          </div>
+          <div *ngIf="changepassowrd.controls.confirmPassword.invalid && isSubmit" class="error">
+            Please Enter Confirm Password
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-keyboard"></i>
+            </div>
+            <div class="input">
+              <input type="tel" formControlName="otp" placeholder="OTP"/>
+            </div>
+          </div>
+          <div *ngIf="changepassowrd.controls.otp.invalid && isSubmit" class="error">
+            Please Enter Otp
+          </div>
+    
+          <div class="input-group">
+            <div class="input-botton">
+              <button class="btn btn-primary" (click)="gotoHome()">Set New Password</button>
+            </div>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

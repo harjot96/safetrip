@@ -1,0 +1,7 @@
+{
+  "name": "Safetrip",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

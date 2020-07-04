@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Rate Your Ride</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<div>
+  <ion-row>
+    <h2>{{tripdetails.totalFare}}</h2>
+  </ion-row>
+  <ion-avatar style="height: 100px;
+  width: 100%;
+  text-align: center;">
+    <img style="height: 104px;
+    width: 100px;" [src]="driverdata.profileImage" alt="">
+  </ion-avatar>
+  <ion-row>
+<h5>{{driverdata.firstName}} {{driverdata.lastName}}</h5>
+  </ion-row>
+  <ion-row style="justify-content: center;">
+    <rating [(ngModel)]="driverate"
+    readonly="false"
+size="default"
+(ngModelChange)="onRateChange($event)">
+</rating>
+  </ion-row>
+  <ion-row style="    margin: 20px 20px 10px 20px;">
+      <ion-input  placeholder="Write a thank you note" [(ngModel)]="comment"></ion-input>
+  </ion-row>
+  <ion-row style="justify-content: center;">
+    <ion-button color="danger" (click)="submit()">
+SUBMIT
+    </ion-button>
+  </ion-row>
+</div>
+
+
+</ion-content>

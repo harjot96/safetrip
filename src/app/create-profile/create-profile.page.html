@@ -1,0 +1,88 @@
+<ion-content>
+    <div class="createprofilepage">
+        <div class="upper">
+            <div class="logo">
+                <img class="logo-img" src="assets/images/logo.png" />
+            </div>
+            <form class="form" [formGroup]="profileform">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="profilepic">
+                            <div class="pic">
+                                <img class="user" [src]="image" alt="">
+                                <div class="pencil" (click)="click_Image()"><i class="far fa-edit"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="First Name" formControlName="firstname" />
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.firstname.invalid && isSubmit" class="error">
+                        Please Enter First Name
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="Last Name" formControlName="lastname" />
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.lastname.invalid && isSubmit" class="error">
+                        Please Enter Last Name
+                    </div>
+                     
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-venus-mars"></i>
+                        </div>
+                        <div class="input radio">
+                            <div class="radio-input">
+                                <input type="radio" formControlName="type" value="Male" /> Male
+                            </div>
+                            <div class="radio-input">
+                                <input type="radio" formControlName="type" value="Female" /> Female
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.type.invalid && isSubmit" class="error">
+                        Please Select Gender
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="Email" formControlName="email"  />
+                        </div>
+                        
+                    </div>
+                    <div *ngIf="profileform.controls.email.invalid && isSubmit" class="error">
+                        Please fill valid email
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="Address" formControlName="address" />
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.address.invalid && isSubmit" class="error">
+                        Please fill Address field
+                    </div>
+                    <div class="input-group">
+                        <div class="input-botton">
+                            <button class="btn btn-primary" (click)="createProfile()">Create Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

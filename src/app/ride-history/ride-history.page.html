@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>RideHistory</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ <div *ngIf="data.length">
+  <div class="card" *ngFor="let d of data" (click)="tripDetail(d)" >
+    <img src="https://staticmapmaker.com/img/google@2x.png" alt="">
+<div class="detail">
+<div>
+<span>{{d.booking_datetime |timeAgo}}</span>
+</div>
+<div>
+<span>{{d.mobile}}</span>
+</div>
+</div>
+<h3>{{d.firstName}}</h3>
+  </div>
+ </div>
+
+ <div class="records" *ngIf="!data.length">
+<div>
+  <img src="../../assets/images/transport.svg" alt="">
+</div>
+<h5>No Ride Found !</h5>
+</div>
+
+</ion-content>

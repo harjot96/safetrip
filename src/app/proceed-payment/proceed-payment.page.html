@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons> -->
+    <ion-title>Select Card</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="allcard">
+  <h4 style="text-align: center; margin-bottom: 20px;margin-top: 20px;">Please Select card for payment</h4>
+  <div class="selectRide" *ngFor="let tag of cards; let i=index" (click)="selectedCard(tag)">
+    <label class="btn" for="card1">
+      <div class="careimage">
+        <i class="fas fa-credit-card"></i>
+      </div>
+      <div class="name">
+        {{tag.cardNumber}}
+      </div>
+    </label>
+  </div>
+  <div class="buttonsubmit">
+    <ion-button color="danger" [disabled]="disablebutton" (click)="payRide()">
+Pay {{tripdetials.totalFare}}
+    </ion-button>
+  </div>
+
+</div>
+  
+
+  <div class="image_show">
+<img src="../../assets/undraw_off_road_9oae.svg" alt="">
+  </div>
+
+
+
+</ion-content>

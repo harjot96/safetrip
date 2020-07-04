@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Help</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list>
+   <ion-item lines="full" *ngFor="let d of data " (click)="help(d)">
+     <h3>{{d.text}}</h3>
+   </ion-item>
+  
+  
+  
+ </ion-list>
+
+<!-- 
+<div class="design">
+
+</div> -->
+
+</ion-content>

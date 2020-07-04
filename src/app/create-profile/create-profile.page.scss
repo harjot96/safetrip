@@ -1,0 +1,106 @@
+$primarycolor: #db4141;
+
+.createprofilepage {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    .upper {
+        flex: 1;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        .logo {
+            display: flex;
+            justify-content: center;
+            padding: 5% 0;
+            .logo-img {
+                max-width: 209px;
+                width: 60%;
+            }
+        }
+        .user {
+            max-width: 100%;
+            border: 0;
+            max-height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+        }
+
+        .form {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 5% 0 0 0;
+            .form-group {
+                .input-group {
+                    .profilepic {
+                        width: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 5% 0;
+                        display: flex;
+                        .pic {
+                        width: 100px;
+                        height: 100px;
+                        background: transparent;
+                        border-radius: 50%;
+                        position: relative;
+                        img{
+                        max-width: 100%;
+                        border: 0;
+                        max-height: 100%;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        border: 2px solid #ccc;
+                            }
+                            .pencil {
+                                position: absolute;
+                                right: 6px;
+                                bottom: 14px;
+                                font-size: 18px;
+                                color: rgb(185, 174, 174);
+                            }
+                        }
+                    }
+
+                    .input {
+                        &.radio {
+                            display: flex;
+                            justify-content: space-around;
+                            line-height: 27px;
+                            .radio-input {
+                                display: inline-flex;
+                                margin-right: 20px;
+                                justify-content: center;
+                                align-items: center;
+                                input {
+                                    height: 27px;
+                                    line-height: 27px;
+                                    border: none;
+                                    width: auto !important;
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+
+                    .input-botton {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .lower {
+        padding: 15px;
+        padding-bottom: 30px;
+        text-align: center;
+        strong {
+            color: $primarycolor;
+        }
+    }
+}

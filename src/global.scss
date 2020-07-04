@@ -1,0 +1,217 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+
+/* Core CSS required for Ionic components to work properly */
+
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+$primarycolor: #DB4141;
+body {
+    font-size: 1rem;
+}
+
+img {
+    max-width: 100%;
+    border: 0;
+    max-height: 100%;
+}
+
+.form {
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+    .form-group {
+        width: 100%;
+    }
+    .input-group {
+        margin-bottom: 20px;
+        display: flex;
+        .icon {
+            font-size: 24px;
+            padding-right: 10px;
+            line-height: 40px;
+            color: $primarycolor;
+        }
+        .input {
+            flex: 1;
+            input {
+                padding: 0 10px;
+                height: 40px;
+                line-height: 40px;
+                border: none;
+                width: 100%;
+                border-bottom: 1px solid $primarycolor;
+                font-size: 1.25rem;
+                // box-shadow: none;
+            }
+        }
+        .input-botton {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p {
+            text-align: center;
+            width: 100%;
+        }
+    }
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background: $primarycolor !important;
+    border-color: $primarycolor !important;
+    border-radius: 5px;
+    line-height: 30px;
+    min-width: 200px;
+    color: #fff;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: rgb(209, 25, 25) !important;
+    border-color: rgb(209, 25, 25) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary:focus {
+    color: #fff;
+    background-color: rgb(209, 25, 25) !important;
+    border-color: rgb(209, 25, 25) !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.error {
+    color: red;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 0px;
+    /* text-align: center; */
+    padding-left: 13%;
+    margin-bottom: 20px;
+}
+.li-ionic4-datePicker {
+    .modal-wrapper {
+    height: 75%;
+    width: 310px;
+    border-radius: 0px;
+    @media (min-width: 768px) {
+    width: 350px;
+    height: 65%;
+    }
+    }
+    }
+    [_nghost-nji-c6] ion-header[_ngcontent-nji-c6] ion-toolbar[_ngcontent-nji-c6] {
+        --background:red;
+        height: 100%;
+        align-items: center;
+        display: flex;
+        color: var(--ion-color-primary-contrast);
+    }
+    #mapCanvas img {
+        max-width: none;
+      }
+
+
+      rating {
+        ion-buttons{
+            display: flex;
+            justify-content: flex-start !important;
+        }  
+
+        .sc-ion-buttons-md-s .button-has-icon-only.button-clear{
+            width: 25px;
+            height: 21px;
+            margin: unset;
+            --padding-top: 0px !important;
+            --padding-end: 0px !important;
+            --padding-bottom: 0px !important;
+            --padding-start: 0px !important;
+           }
+           .sc-ion-buttons-ios-s .button-has-icon-only.button-clear{
+            width: 25px;
+            height: 21px;
+            margin: unset;
+            --padding-top: 0px !important;
+            --padding-end: 0px !important;
+            --padding-bottom: 0px !important;
+            --padding-start: 0px !important;
+        }
+        ion-icon {
+          color: gray;
+          font-size: 15px !important;
+      
+          &.filled {
+            color: #ffb400;
+          }
+        }
+      }
+
+      .customCancel .modal-wrapper{
+        --height: 22%;
+        position: absolute;
+        top: 70%;
+        display: block;
+        width: 80%;
+        background: transparent;
+        border-radius: 10px;
+      }
+      .Rating .modal-wrapper{
+        --height: 73%;
+        position: absolute;
+        top: 16%;
+        display: block;
+        width: 91%;
+        background: transparent;
+        border-radius: 10px;
+
+        
+      }
+      .payment .modal-wrapper{
+        --height: 46%;
+        position: absolute;
+        top: 47%;
+        display: block;
+        width: 80%;
+        background: transparent;
+        border-radius: 10px;
+    }
+    .findingDriver .modal-wrapper{
+        --height: 20%;
+        position: absolute;
+        top: 47%;
+        display: block;
+        width: 80%;
+        // background: transparent;
+        border-radius: 10px;
+    }

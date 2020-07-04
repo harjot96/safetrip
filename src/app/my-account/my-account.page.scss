@@ -1,0 +1,56 @@
+ion-icon{
+    padding-right: 10px;
+    font-size: 28px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+ion-row{
+    width: 100%;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    img{
+        border-radius: 50%;
+    }
+}
+h4{
+    margin-top: 5px;
+}
+input:focus {
+border: none !important;
+}
+input{
+    border: none;
+}
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    --background:black;
+
+}
+.btn1{
+    --background:red;
+    width: 50%;
+
+}
+.btn2{
+    --background:black;
+    width: 50%;
+}
+.edit{
+    img{
+        height: 25px;
+        border-radius: 0px !important;
+        padding-top: 5px;
+        margin-top: 5px;
+
+    }
+}
+.edit_profile{
+    display:flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Trip Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar style="    text-align: center;
+  width: 100%;">
+    <img style="height: 50px;
+    width: 50px;" [src]="driverDetails.image">
+  </ion-avatar>
+<h3>{{driverDetails.firstName}}{{driverDetails.lastName}}</h3>
+<h4>Trip detail</h4>
+<p style="    margin-left: 10px;
+font-size: 15px;
+font-weight: bold;">
+  Pick Up
+</p>
+
+<p class="location">
+  {{tripdetails.sourceAddress}}
+</p>
+<div class="dashedline">
+
+</div>
+<p style="    margin-left: 10px;
+font-size: 15px;
+font-weight: bold;">
+  Drop offf
+</p>
+<p class="location"> 
+  {{tripdetails.destinationAddress}}
+
+</p>
+
+<div>
+  <p style="text-align: center;">
+    <span >Total Fare:</span>
+    <span style="margin-left:5px">{{tripdetails.totalFare}}</span>
+    </p>
+</div>
+
+
+<div class="button" *ngIf="tripdetails.paymentType==='card'" >
+  <ion-button color="danger" (click)="AcceptPayment()">Procced To Pay</ion-button>
+</div>
+
+<div class="button" *ngIf="tripdetails.paymentType==='cash'" >
+  <ion-button color="danger" (click)="CashPayment()">Pay Cash {{tripdetails.totalFare}}</ion-button>
+</div>
+
+
+
+
+ 
+
+</ion-content>

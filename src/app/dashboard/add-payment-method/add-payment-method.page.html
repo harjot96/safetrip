@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Payment Method</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="createprofilepage">
+    <div class="upper">
+      <h1 class="text-center">Payment Method</h1>
+      <div class="page-payment-method pt-4">
+        <div class="payment-option">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 text-center">
+                <input name="paymentmethod" type="radio" id="cc" [(ngModel)]="form.paymentmethod" value="cc" />
+                <label for="cc">
+                    <img src="../../../assets/images/cc-cards.png" width="70px">
+                    <div class="tick"></div>
+                </label>
+              </div>
+              <div class="col-6 text-center">
+                <input name="paymentmethod"  type="radio" id="insurance" [(ngModel)]="form.paymentmethod" value="insurance" />
+                <label for="insurance">
+                  <img src="../../../assets/images/insurance.png" width="70px">
+                  <div class="tick"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="payment-method">
+        </div>  
+      </div>
+
+      <div class="form" *ngIf="form.paymentmethod == 'cc'">
+        <div class="form-group ">
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="input">
+              <input type="name" placeholder="Card Holder Name"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="input">
+              <input type="tel" placeholder="Card Number"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="far fa-address-card"></i>
+            </div>
+            <div class="input">
+              <input type="tel" placeholder="CVC"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="icon">
+              <i class="far fa-clock"></i>
+            </div>
+            <div class="input">
+              <input type="tel" placeholder="Expriy Date MM/YY"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="input-botton">
+              <button class="btn btn-primary" (click)="savePaymentMethod()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form" *ngIf="form.paymentmethod == 'insurance'">
+        <div class="form-group ">
+          <div class="input-group">
+            <div class="icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="input">
+              <input type="tel" placeholder="Insurance Number"/>
+            </div>
+          </div>
+          <div class="input-group">
+            <div class="input-botton">
+              <button class="btn btn-primary" (click)="savePaymentMethod()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

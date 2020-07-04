@@ -1,0 +1,508 @@
+
+$primarycolor: #DB4141;
+#map{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+.head{
+    margin: 13px 2px 10px 73px;
+    background: #fff;
+    padding: 10px;
+    height: auto;
+    overflow: scroll;
+    border-radius: 10px;
+}
+.dashboard{
+    width: 100%;
+    height: 100%;
+  
+
+    .round-menu {
+        z-index: 999;
+        position: fixed;
+        left: 25px;
+        top: 30px;
+        display: block;
+        font-size: 20px;
+        padding: 15px;
+        background:#DB4141;
+        line-height: 1;
+        border-radius: 50%;
+        color:#fff;
+    }
+    
+    .header{
+        height: 80px;
+        box-shadow: 0px 1px 5px #ccc;
+        .form {
+            padding: 0 0 0 70px !important;
+            .form-group{
+                margin-bottom: 0 !important;
+            }
+            .input-group {
+                margin-bottom: 0;
+                .input input {
+                    // height: 30px;
+                    // line-height: 30px;
+                    border: none;
+                        border-bottom-color: currentcolor;
+                        border-bottom-style: none;
+                        border-bottom-width: medium;
+                    width: 100%;
+                    // border-bottom: 1px solid #DB4141;
+                    box-shadow: inset 3px 3px 5px -5px #DB4141; 
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .searchRidebutton {
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9;
+            button {
+                width: 100%;
+                border-radius: 0 !important;
+            }
+        }
+    }
+
+
+    .enablelocation {
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -150px;
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 150px;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
+        z-index: 998;
+        overflow: hidden;
+        padding: 10px 10%;
+        justify-content: center;
+        align-items: center;
+        p{
+            font-size: 10px;
+            margin: 10px auto;
+        }
+        button {
+            margin-bottom: 10px;
+            width: 100%;
+            &.mannual{
+                background: #000 !important;
+            }
+        }  
+    }
+
+    .selectRideList{
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -260px;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 260px;
+        width: 100%;
+        z-index: 998;
+        overflow: hidden;
+        .selectRide{
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"]:checked ~ label.carlist{
+                background: rgba(219, 65, 65, 0.548);
+            }
+    
+            label.carlist{
+                width: 100%;
+                display: flex;
+                border-bottom: 1px solid #ccc;
+                justify-content: space-around;
+                margin: 0;
+                height: 50px;
+                overflow: hidden;
+                background: none;
+                .careimage {
+                    width: 50px;
+                    padding: 10px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .name {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .price{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .selectRidebutton{
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+
+
+
+    .paymentMethodList{
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -260px;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 260px;
+        width: 100%;
+        z-index: 998;
+        overflow: hidden;
+        .selectRide{
+            height: 50px;
+            overflow: hidden;
+            input[type="radio"] {
+                display: none;
+            }
+
+            input[type="radio"]:checked ~ label.carlist{
+                background: rgba(219, 65, 65, 0.548);
+            }
+    
+            label.carlist{
+                width: 100%;
+                display: inline-block;;
+                border-bottom: 1px solid #ccc;
+                margin: 0;
+                height: 50px;
+                overflow: hidden;
+                background: none;
+                .careimage {
+                    width: 50px;
+                    padding: 10px;
+                    float: left;
+                    font-size: 24px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .name {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    height: 50px;
+                    text-align: left;
+                }
+            }
+        }
+
+        .selectRidebutton{
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .add-more-line {
+            text-align: center;
+            margin: 10px auto;
+            font-size: 14px;
+        }
+    }
+
+
+
+    .carshavelist {
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -50px;
+        display: flex;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 50px;
+        width: 100%;
+        .car{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            img {
+                max-height: 30px;
+                max-width: 50px;
+            }
+            font-size: 10px;
+        }
+    }
+
+
+    .driverSelectPop{
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -200px;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 200px;
+        width: 100%;
+        z-index: 998;
+        overflow: hidden;
+
+        .user-info{
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            .userpic{
+                width: 50px;
+                height: 50px;
+                .pic {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: #DB4141;
+                }
+            }
+
+            .detail{
+                padding: 0 10px;
+                flex: 1;
+                .name {
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                .rating{
+                    display: flex;
+                }
+
+            }
+        }
+        .otherdetail{
+            padding: 10px;
+            text-align: center;
+            p {
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+
+        .cancel-ride-line {
+            text-align: center;
+            margin: 10px auto;
+            font-size: 14px;
+        }
+    }
+
+    .driverPayRide{
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -200px;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 200px;
+        width: 100%;
+        z-index: 998;
+        overflow: hidden;
+
+        .user-info{
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            .userpic{
+                width: 50px;
+                height: 50px;
+                .pic {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: #DB4141;
+                }
+            }
+
+            .detail{
+                padding: 0 10px;
+                flex: 1;
+                .name {
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                .rating{
+                    display: flex;
+                }
+
+                p {
+                    margin: 5px 0 0 0;
+                }
+
+            }
+        }
+        .otherdetail{
+            padding: 10px;
+            .fare {
+                font-size: 36px;
+                font-weight: 600;
+                text-align: center;
+            }
+            p {
+                text-align: center;
+                margin: 10px;
+            }
+        }
+
+        .cancel-ride-line {
+            text-align: center;
+            margin: 10px auto;
+            font-size: 14px;
+        }
+    }
+
+    .driverFeedback{
+        transition: bottom 0.5s ease;
+        position: fixed;
+        bottom: -350px;
+        background: #fff;
+        box-shadow: 0px 1px 5px #ccc;
+        height: 350px;
+        width: 100%;
+        z-index: 998;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+
+        .user-info{
+            display: flex;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            .userpic{
+                width: 50px;
+                height: 50px;
+                .pic {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: #DB4141;
+                }
+            }
+
+            .detail{
+                padding: 0 10px;
+                flex: 1;
+                .name {
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+                .rating{
+                    display: flex;
+                }
+
+                p {
+                    margin: 5px 0 0 0;
+                }
+
+            }
+        }
+        .otherdetail{
+            flex:1;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .rating{
+                font-size: 30px;
+            }
+
+            p{
+                font-size: 10px;
+            }
+            
+            .input-group {
+                display: flex;
+                .input {
+                    flex: 1;
+                    input {
+                        padding: 0 10px;
+                        height: 40px;
+                        line-height: 40px;
+                        border: none;
+                        width: 100%;
+                        border-bottom: 1px solid $primarycolor;
+                        font-size: 0.75;
+                    }
+                }
+                .input-botton{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px 0 0 0;
+
+                    .btn-primary {
+                        background: #DB4141 !important;
+                        border-color: #DB4141 !important;
+                        border-radius: 5px;
+                        line-height: 20px;
+                        min-width: 150px;
+                        color: #fff;
+                        outline: none !important;
+                        box-shadow: none !important;
+                    }
+                }
+
+                p {
+                    text-align: center;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+}
+
+
+.displayorhide{
+    display: block;
+    &.display {
+        .carshavelist{
+            bottom: 0;
+        }
+
+        .enablelocation{
+            bottom: 0;
+        }
+        
+        .selectRideList{
+            bottom: 0
+        }
+
+        .paymentMethodList{
+            bottom: 0;
+        }
+
+        .driverSelectPop{
+            bottom: 0;
+        }
+
+        .driverPayRide {
+            bottom: 0;
+        }
+
+        .driverFeedback { 
+            bottom: 0;
+        }
+    } 
+}

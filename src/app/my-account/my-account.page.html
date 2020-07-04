@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <div class="main"> 
+    <ion-row>
+      <ion-col size="3" *ngIf="user.image!=''">
+        <img style="    height: 70px;
+        width: 100px;
+        object-fit: cover;" [src]="user.image" alt="">
+
+      </ion-col>
+      <ion-col size="3" *ngIf="user.image===''">
+        <img style="    height: 70px;
+        width: 100px;
+        object-fit: cover;" [src]="image" alt="">
+
+      </ion-col>
+      <ion-col size="9">
+    <div class="edit_profile">
+      <div>
+        <h4>{{user.firstName}} {{user.lastName}}</h4>
+        <div><span>{{user.rating}}</span> <span><img style="position: absolute;height: 14px;padding-left: 4px;" src="../../assets/star.png" alt=""></span></div>
+    
+      </div>
+      <div class="edit" (click)="editProfile()">
+<img src="../../assets/pencil.png" alt="">
+      </div>
+    </div>
+      </ion-col>
+    </ion-row>
+   <ion-row> <ion-col size="4"><span style="font-weight: bold;">Email ID</span></ion-col> <ion-col size="8">
+
+    <div class="input">
+      <input type="tel" #inputToFocus  [value]="user.email" [readonly]="true" required/>
+    </div>
+
+   </ion-col></ion-row>
+   <ion-row> <ion-col size="4"><span style="font-weight: bold;">Address</span></ion-col> <ion-col size="8">
+    <input type="tel" [value]="user.address" [readonly]="true" required/>
+    </ion-col></ion-row>
+   <ion-row> <ion-col size="4"><span style="font-weight: bold;">Contact</span></ion-col> <ion-col size="8" >
+    <input type="tel" [value]="user.mobile" [readonly]="true"  required/>
+     
+  </ion-col></ion-row>
+</div>
+<div class="btn">
+  <ion-button color="danger" (click)="signout()">
+
+    <ion-icon name="chevron-forward-circle-outline"></ion-icon>
+    <span style="padding-top: 2px;
+    font-size: 15px;">Sign out</span>
+  </ion-button>
+  <!-- <ion-button  class="btn1" color="danger" (click)="edit()">Edit</ion-button>
+  <ion-button class="btn2"  color="dark" (click)="save()">Save</ion-button> -->
+
+</div>
+</ion-content>

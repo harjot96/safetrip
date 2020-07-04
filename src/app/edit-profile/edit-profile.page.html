@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+    <div class="createprofilepage">
+        <div class="upper">
+            <div class="logo">
+                <img class="logo-img" src="assets/images/logo.png" />
+            </div>
+            <form class="form" [formGroup]="profileform">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="profilepic">
+                            <div class="pic">
+                                <img *ngIf="user.image===''" class="user" [src]="image" alt="">
+                                <img class="user" *ngIf="user.image!=''" [src]="user.image" alt="">
+
+                                <div class="pencil" (click)="click_Image()"><i class="far fa-edit"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="First Name" formControlName="firstName" />
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.firstName.invalid && isSubmit" class="error">
+                        Please Enter First Name
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="Last Name" formControlName="lastName" />
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.lastName.invalid && isSubmit" class="error">
+                        Please Enter Last Name
+                    </div>
+                     
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-venus-mars"></i>
+                        </div>
+                        <div class="input radio">
+                            <div class="radio-input">
+                                <input type="radio" formControlName="gender" value="Male" /> Male
+                            </div>
+                            <div class="radio-input">
+                                <input type="radio" formControlName="gender" value="Female" /> Female
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.gender.invalid && isSubmit" class="error">
+                        Please Select Gender
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="Email" formControlName="email"  />
+                        </div>
+                        
+                    </div>
+                    <div *ngIf="profileform.controls.email.invalid && isSubmit" class="error">
+                        Please fill valid email
+                    </div>
+                    <div class="input-group">
+                        <div class="icon">
+                            <i class="fas fa-phone-square-alt"></i>
+                        </div>
+                        <div class="input">
+                            <input type="name" placeholder="Address" formControlName="address" />
+                        </div>
+                    </div>
+                    <div *ngIf="profileform.controls.address.invalid && isSubmit" class="error">
+                        Please fill Address field
+                    </div>
+                    <div class="input-group">
+                        <div class="input-botton">
+                            <button class="btn btn-primary" (click)="createProfile()">Update Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</ion-content>

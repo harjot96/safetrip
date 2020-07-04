@@ -1,0 +1,43 @@
+$primarycolor: #DB4141;
+
+.otppage{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    .upper{
+        flex:1;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        .logo{
+            display: flex;
+            justify-content: center;
+            padding: 15% 0;
+            .logo-img{
+                max-width: 209px;
+                width: 60%;
+            }
+        }
+        .form {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 15% 0 0 0;
+            .form-group {
+                .input-group{
+                    .input-botton {
+                        margin-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .lower{
+        padding: 15px;
+        padding-bottom: 30px;
+        text-align: center;
+        strong {
+            color: $primarycolor;
+        }
+    }
+}
