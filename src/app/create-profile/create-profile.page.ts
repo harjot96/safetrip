@@ -1,9 +1,11 @@
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from '../service/api.service';
-import { ToastController, AlertController, Platform } from '@ionic/angular';
+import { ToastController, AlertController, Platform, ActionSheetController } from '@ionic/angular';
 import { LoaderService } from '../loader.service';
 
 @Component({
@@ -22,6 +24,9 @@ export class CreateProfilePage implements OnInit {
   constructor(private router: Router,public platform:Platform, public Api: ApiService,
     public toastController: ToastController,
     public alert:AlertController,
+    private camera: Camera,
+    public actionSheetController: ActionSheetController,
+    public zone: NgZone,
     public loader: LoaderService,
     public location: Location) { }
 
@@ -51,7 +56,6 @@ export class CreateProfilePage implements OnInit {
 
     this.isSubmit = true;
     if(this.profileform.valid){
-if(this.userImgae!=''){
 
   this.loader.showLoader();
   let data = {
@@ -60,8 +64,6 @@ if(this.userImgae!=''){
     gender: this.profileform.controls.type.value,
     userId: this.userReg.id,
     email: this.profileform.controls.email.value,
-    imageType:'1',
-    image:this.userImgae,
     address:this.profileform.controls.address.value,
   }
 
@@ -94,21 +96,7 @@ if(this.userImgae!=''){
     this.loader.hideLodder();
 
   });
-}
-else{
-  let alert=this.alert.create({
-    message:'please select proile image',
-    buttons:[{
-      text:'Ok',
-      role:'Close',
 
-    }],
-    mode:'ios'
-  });
-  alert.then((res)=>{
-  res.present();
-  })
-}
      
     }
 
@@ -125,45 +113,89 @@ else{
     })
   }
 
-  click_Image() {
+//   click_Image() {
 
-    let selection: any = this.Api.uploadPicCamGal();
-    let api = 'user/upload-profile-image';
-    let token = localStorage.getItem('token');
-    selection.then((res) => {
-      if (res == 'Gallery') {
+//     let selection: any = this.Api.uploadPicCamGal();
+//     selection.then((res) => {
+//       if (res == 'Gallery') {
 
-        this.Api.uploadGalPic().then((res: any) => {
-          this.userImgae = res;
-          localStorage.setItem('image', res);
-          console.log(res);
-          }, 
-          (err) => {
-          console.log(err, '1222');
-          });
-          }
-      if (res == 'Camera') {
+//         this.Api.uploadGalPic().then((res: any) => {
+//           this.userImgae = res;
+//           localStorage.setItem('image', res);
+//           console.log(res);
+//           }, 
+//           (err) => {
+//           console.log(err, '1222');
+//           });
+//           }
+//       if (res == 'Camera') {
 
 
-this.Api.uploadCameraPic().then((res: any) => {
-          if (res) {
-            localStorage.setItem('image', res);
-            this.userImgae = res;
-          console.log(res);
+// this.Api.uploadCameraPic().then((res: any) => {
+//           if (res) {
+//             localStorage.setItem('image', res);
+//             this.userImgae = res;
+//           console.log(res);
 
 
 
-          }
+//           }
 
-        }, (err) => {
-          console.log(err);
+//         }, (err) => {
+//           console.log(err);
 
-        });
-      }
-    }, err => {
-      console.log(err, '5252');
+//         });
+//       }
+//     }, err => {
+//       console.log(err, '5252');
 
+//     });
+//   }
+
+
+
+  openCamera(sourceType) {
+    const options: CameraOptions = {
+      quality: 30,
+      sourceType: sourceType,
+      destinationType: this.camera.DestinationType.DATA_URL,
+      targetWidth: 300,
+      targetHeight: 300,
+      // encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      correctOrientation: true,
+      saveToPhotoAlbum: false,
+    }
+
+    this.camera.getPicture(options).then((imageData) => {
+      this.userImgae = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      // Handle error
+      alert(JSON.stringify(err))
     });
+
+  }
+  async click_Image() {
+    const actionSheet = await this.actionSheetController.create({
+      buttons: [{
+        text: 'Load from Library',
+        handler: () => {
+          this.openCamera(this.camera.PictureSourceType.PHOTOLIBRARY);
+        }
+      },
+      {
+        text: 'Use Camera',
+        handler: () => {
+          this.openCamera(this.camera.PictureSourceType.CAMERA);
+        }
+      },
+      {
+        text: 'Cancel',
+        role: 'cancel'
+      }
+      ]
+    });
+    await actionSheet.present();
   }
 
 }

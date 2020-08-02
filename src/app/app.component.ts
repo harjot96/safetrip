@@ -44,8 +44,9 @@ getuserLocation={
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.statusBar.show();
       this.statusBar.overlaysWebView(false);
-      this.statusBar.styleDefault();
+      this.statusBar.backgroundColorByHexString('#404F4F')
       this.splashScreen.hide();
       // this.createusermodal();
       
